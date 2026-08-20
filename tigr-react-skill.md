@@ -92,7 +92,6 @@ From the full tree, build the list of every user-initiated action: button clicks
 | Auto event | Covers |
 |---|---|
 | `pageview` | every page **and SPA route change** — fired automatically by the history patch (Step 0.3) |
-| `rage_click` | 3+ rapid clicks on the same spot |
 | `scroll_depth` | how far down the page |
 | `error` | uncaught JS errors |
 | `page_leave` | leaving the page/tab |
