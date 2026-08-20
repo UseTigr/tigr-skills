@@ -21,7 +21,7 @@ This is the **framework-free** SDK — for plain HTML sites, server-rendered pag
    ```html
    <script src="/tigr.js" data-api-key="tigr_pk_live_..."></script>
    ```
-   - On load it **auto-starts** from `data-api-key` and begins capturing pageviews, rage clicks, scroll depth, errors and page-leaves. No init code needed.
+   - On load it **auto-starts** from `data-api-key` and begins capturing pageviews, scroll depth, errors and page-leaves. No init code needed.
    - The file must be **served** by the site. On a static/Express site drop `dist/tigr.js` (from the `tigr-js` npm package, or the CDN) into the public web root so `/tigr.js` resolves. `npm i tigr-js` alone does **not** serve it — `node_modules` isn't web-accessible; it's for the module/bundler path only.
    - The API key comes from the `data-api-key` attribute — **never invent one**; if it's missing, tell the user to paste their `tigr_pk_...` key. Safe by design: a missing/wrong key silently no-ops, it never crashes the page.
    - `data-*` options: `data-host` (override ingestion host), `data-auto-capture="false"` (disable all auto-capture), `data-dev-mode="true"` (full no-op for local dev), `data-debug="true"` (console-log events).
@@ -78,7 +78,6 @@ From the full picture, build the list of every user-initiated action: button cli
 |---|---|
 | `pageview` | every page load **and** SPA/history navigation — fired automatically (initial load + a `history.pushState`/`replaceState` patch + `popstate`) |
 | `session_start` | new session (30-min window) |
-| `rage_click` | 3+ rapid clicks on the same spot |
 | `scroll_depth` | how far down the page |
 | `error` | uncaught JS errors + unhandled promise rejections |
 | `page_leave` | leaving the page/tab (also flushes) |
