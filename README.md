@@ -57,7 +57,21 @@ Each skill ships as its own plugin under `plugins/<name>/skills/<name>/SKILL.md`
 /plugin install tigr-react@tigr-skills        # swap for tigr-vue / tigr-js / tigr-react-native
 ```
 
-Claude Code fetches the plugin, drops the skill into place, and it's immediately available, no manual file copying. When we ship an update, run `/plugin marketplace update tigr-skills` to pull it.
+Claude Code fetches the plugin, drops the skill into place, and it's immediately available, no manual file copying. Install runs at `user` scope by default, so it's active in every project, not just the one you ran it in (add `--scope project` to scope it to a single repo instead).
+
+**Other useful commands**, once the marketplace is added:
+
+| Command | Does |
+| --- | --- |
+| `/plugin marketplace list` | Show marketplaces you've added |
+| `/plugin marketplace update tigr-skills` | Pull the latest version of every plugin in this marketplace |
+| `/plugin marketplace remove tigr-skills` | Stop tracking this marketplace |
+| `/plugin list --available` | Browse every plugin available across your added marketplaces, including tigr-skills, before installing |
+| `/plugin list` | Show plugins you have installed |
+| `/plugin details tigr-vue@tigr-skills` | Show a plugin's skills and token cost before/after installing |
+| `/plugin update tigr-vue` | Update one plugin to its latest version |
+| `/plugin disable tigr-vue` / `/plugin enable tigr-vue` | Turn a plugin off/on without uninstalling it |
+| `/plugin uninstall tigr-vue` | Remove a plugin |
 
 ### Option B — Manual copy
 
