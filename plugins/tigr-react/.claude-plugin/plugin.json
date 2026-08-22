@@ -1,0 +1,11 @@
+{
+  "name": "tigr-react",
+  "description": "Instrument a React or Next.js page or component with tigr events.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tigr Team",
+    "url": "https://github.com/UseTigr"
+  },
+  "homepage": "https://usetigr.app",
+  "repository": "https://github.com/UseTigr/tigr-skills"
+}

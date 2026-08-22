@@ -1,0 +1,11 @@
+{
+  "name": "tigr-setup",
+  "description": "Set up tigr analytics in a project from scratch: detect the stack, install the SDK, wire the API key, initialize it once.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tigr Team",
+    "url": "https://github.com/UseTigr"
+  },
+  "homepage": "https://usetigr.app",
+  "repository": "https://github.com/UseTigr/tigr-skills"
+}

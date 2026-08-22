@@ -35,24 +35,38 @@ These skills do that part. They know what tigr already captures for free, so the
 
 ## What is in here
 
-| File | What it does |
+Each skill ships as its own plugin under `plugins/<name>/skills/<name>/SKILL.md`, so you only install the one matching your stack.
+
+| Plugin | What it does |
 | --- | --- |
-| `tigr-setup-agent.md` | Start here if tigr is not installed yet. Detects your stack, wires the API key into the right env file with the right prefix, installs the SDK, initializes it once. |
-| `tigr-react-skill.md` | Instruments a React or Next.js page. |
-| `tigr-vue-skill.md` | Instruments a Vue or Nuxt page. |
-| `tigr-react-native-skill.md` | Instruments a React Native screen, and wires the navigator listener that gives you screen views. |
-| `tigr-js-skill.md` | Instruments a plain HTML, server-rendered, jQuery, Alpine or htmx page. No build step. |
+| `tigr-setup` | Start here if tigr is not installed yet. Detects your stack, wires the API key into the right env file with the right prefix, installs the SDK, initializes it once. |
+| `tigr-react` | Instruments a React or Next.js page. |
+| `tigr-vue` | Instruments a Vue or Nuxt page. |
+| `tigr-react-native` | Instruments a React Native screen, and wires the navigator listener that gives you screen views. |
+| `tigr-js` | Instruments a plain HTML, server-rendered, jQuery, Alpine or htmx page. No build step. |
 
 ---
 
 ## Install
 
-Claude Code reads skills from a `.claude/skills/<name>/SKILL.md` folder. Per project:
+### Option A — Claude Code marketplace (recommended)
+
+```
+/plugin marketplace add UseTigr/tigr-skills
+/plugin install tigr-setup@tigr-skills
+/plugin install tigr-react@tigr-skills        # swap for tigr-vue / tigr-js / tigr-react-native
+```
+
+Claude Code fetches the plugin, drops the skill into place, and it's immediately available, no manual file copying. When we ship an update, run `/plugin marketplace update tigr-skills` to pull it.
+
+### Option B — Manual copy
+
+Claude Code also reads skills straight from a `.claude/skills/<name>/SKILL.md` folder, if you'd rather not use the marketplace:
 
 ```bash
 git clone https://github.com/UseTigr/tigr-skills.git /tmp/tigr-skills
 mkdir -p .claude/skills/tigr-react
-cp /tmp/tigr-skills/tigr-react-skill.md .claude/skills/tigr-react/SKILL.md
+cp /tmp/tigr-skills/plugins/tigr-react/skills/tigr-react/SKILL.md .claude/skills/tigr-react/SKILL.md
 ```
 
 To have them in every project, use `~/.claude/skills/` instead of `.claude/skills/`.
@@ -76,8 +90,10 @@ https://usetigr.app/tigr-setup-agent.md
 **1. Get tigr into the project.** If you have never set it up, hand your agent the setup agent:
 
 ```
-Read tigr-setup-agent.md and set tigr up in this project.
+/tigr-setup
 ```
+
+(or, if you installed manually instead of via the marketplace: `Read tigr-setup-agent.md and set tigr up in this project.`)
 
 It asks for your `tigr_pk_...` key (tigr dashboard, Project → Settings → API keys), picks the right SDK, and initializes it once at the app root.
 

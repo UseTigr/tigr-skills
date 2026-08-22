@@ -1,3 +1,8 @@
+---
+name: tigr-setup
+description: Set up tigr analytics in a project from scratch — detect the stack, install the right SDK (tigr-js, tigr-react, tigr-vue, or tigr-react-native), wire the API key into the correct env var, and initialize it once. Use when the user says "set up tigr", "install tigr", "add tigr to this project", or has never configured tigr analytics before.
+---
+
 # tigr — Setup Agent
 
 You are an AI coding agent (Claude Code, Cursor, etc.) helping a developer add **tigr** analytics to their app **from scratch**. Assume they have never set up analytics before. Be friendly, explain *why* at each step, never assume — if something is missing, tell them exactly what to do and where.
